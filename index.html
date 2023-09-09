@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habits</title>
+  <link rel="shortcut icon" href="img/logomark.svg" type="image/x-icon">
+	<link rel="stylesheet" href="scss/main.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+ <div class="app">
+  <aside class="aside">
+    <div class="logo">
+      <a href="#" class="logo__img">
+        <img src="img/logosvg.svg" alt="logo" class="logo-content__img">
+      </a>
+    </div>
+    <nav class="nav">
+      <div class="nav__list"></div>
+          <button class="nav__add-btn" onclick="togglePopup()">
+            <img src="img/add.svg" alt="add" class="add-img">
+          </button>
+    </nav>
+  </aside>
+  <main class="main">
+    <section class="content">
+      <div class="container">
+        <header class="content-header">
+          <h1 class="content-header__title">-</h1>
+          <div class="progress">
+            <div class="progress__text">
+              <p class="progress__name">Прогресс</p>
+              <p class="progress__perecent">%</p>
+            </div>
+            <div class="progress__bar">
+              <div class="progress__bar-cover" aria-label="cover"></div>
+            </div>
+          </div>
+        </header>
+        <div class="days"></div>
+          <div class="task">
+            <div class="task__day">День _</div>
+            <form class="task__form" onsubmit="addDay(event)">
+              <input name="comment" class="task__input" type="text" placeholder="Комментарий"/>
+              <img class="task__icon-comment" src="img/message.svg" alt="Иконка комментария">
+              <button class="btn btn-reset" type="submit">Готово</button>
+            </form>
+          </div>
+      </div>
+
+      <div class="cover cover_hidden" id="add-task-popup">
+        <div class="popup">
+          <h2>Новая привычка</h2>
+          <div class="icon-label">Иконка</div>
+          <div class="icon-select">
+            <button class="icon icon--active" onclick="setIcon(this, 'sport')">
+              <img src="img/sport.svg" alt="Спорт"/>
+            </button>
+            <button class="icon" onclick="setIcon(this, 'water')">
+              <img src="img/water.svg" alt="Напитки"/>
+            </button>
+            <button class="icon" onclick="setIcon(this, 'food')">
+              <img src="img/food.svg" alt="Еда"/>
+            </button>
+          </div>
+          <form class="popup__form" onsubmit="addHabbit(event)">
+            <input type="text" name="name" placeholder="Название" />
+            <input type="text" name="icon" hidden placeholder="Иконка" value="sport"/>
+            <input type="number" name="target" placeholder="Цель" />
+            <button class="btn btn--add" type="submit">Добавить</button>
+          </form>
+          <button class="popup__close" onclick="togglePopup()">
+            <img src="img/close.svg" alt="Закрыть попап"/>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+ </div>
+</body>
+</html>
